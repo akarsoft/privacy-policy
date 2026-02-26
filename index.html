@@ -165,7 +165,7 @@
         <header>
             <p class="app-name">ListingLedger</p>
             <h1>Privacy Policy</h1>
-            <p class="effective-date">Effective Date: February 13, 2026</p>
+            <p class="effective-date">Effective Date: February 26, 2026</p>
         </header>
 
         <div class="highlight-box">
@@ -269,7 +269,7 @@
                 <tr>
                     <td><strong>OpenAI</strong></td>
                     <td>Receipt analysis and expense classification</td>
-                    <td>Receipt text content for AI processing</td>
+                    <td>OCR-extracted receipt text only (see Section 3.1 below)</td>
                 </tr>
                 <tr>
                     <td><strong>Google Places API</strong></td>
@@ -291,6 +291,18 @@
 
         <p>Each third-party service operates under its own privacy policy. We encourage you to review their respective policies.</p>
 
+        <h3>3.1 AI-Powered Receipt Analysis (OpenAI)</h3>
+        <p>When you use the receipt scanning feature, our AI-powered analysis works as follows:</p>
+        <ul>
+            <li><strong>What is shared:</strong> Only the OCR-extracted text from your receipts is sent to OpenAI's API for analysis. Receipt images are never sent to OpenAI &mdash; images are processed on your device using Apple's on-device Vision framework, and only the resulting text is transmitted.</li>
+            <li><strong>Purpose:</strong> The text is analyzed to identify merchant names, amounts, dates, line items, and to classify expenses as business or personal for tax deduction purposes.</li>
+            <li><strong>Data retention by OpenAI:</strong> Per OpenAI's API data usage policy, API inputs and outputs may be retained for up to 30 days for abuse and misuse monitoring, after which they are deleted. Your data is not stored permanently by OpenAI.</li>
+            <li><strong>Model training:</strong> Data submitted through OpenAI's API is <strong>not used to train or improve OpenAI's models</strong>. This is OpenAI's default policy for API usage.</li>
+            <li><strong>No personal identifiers:</strong> We do not send your name, email, account ID, or any other personal identifiers to OpenAI along with the receipt text.</li>
+            <li><strong>Opt-out:</strong> AI-powered receipt analysis is entirely optional. You can choose to manually enter expense details instead of using the AI analysis feature. If you do not use the receipt scanning feature, no data is sent to OpenAI.</li>
+        </ul>
+        <p>For more information, please review <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener noreferrer">OpenAI's Privacy Policy</a> and <a href="https://openai.com/enterprise-privacy" target="_blank" rel="noopener noreferrer">API Data Usage Policy</a>.</p>
+
         <h2>4. Data Storage and Security</h2>
         <ul>
             <li><strong>Local Storage:</strong> Core data is stored on your device using SwiftData for offline access.</li>
@@ -303,11 +315,14 @@
         <h2>5. Data Retention</h2>
         <p>We retain your data for as long as your account is active or as needed to provide our services. When you delete your account:</p>
         <ul>
-            <li>Your data is marked for deletion and removed from active use</li>
+            <li>Your data is marked for deletion and removed from active use immediately</li>
+            <li>Marked data is permanently purged from our systems within 30 days</li>
             <li>Receipt images and generated reports are deleted from storage</li>
             <li>Bank connections through Plaid are disconnected</li>
+            <li>Your authentication account is removed from AWS Cognito</li>
+            <li>A confirmation email is sent to your registered email address</li>
         </ul>
-        <p>We may retain certain data as required by tax regulations or legal obligations.</p>
+        <p>We may retain certain data as required by tax regulations or legal obligations (e.g., IRS recordkeeping requirements).</p>
 
         <h2>6. Your Rights and Choices</h2>
         <p>You have the right to:</p>
@@ -320,8 +335,66 @@
             <li><strong>Bank Disconnect:</strong> Remove connected bank accounts at any time within the app</li>
         </ul>
 
-        <h3>California Residents (CCPA)</h3>
-        <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act, including the right to know what personal information we collect, the right to delete your data, and the right to opt out of the sale of your personal information. We do not sell your personal information.</p>
+        <h3>California Residents (CCPA / CPRA)</h3>
+        <p>If you are a California resident, you have additional rights under the California Consumer Privacy Act (CCPA), as amended by the California Privacy Rights Act (CPRA).</p>
+
+        <p><strong>Categories of Personal Information We Collect:</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Examples</th>
+                    <th>Business Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Identifiers</td>
+                    <td>Name, email address, account ID</td>
+                    <td>Account creation and authentication</td>
+                </tr>
+                <tr>
+                    <td>Financial Information</td>
+                    <td>Transaction amounts, merchant names, bank institution name</td>
+                    <td>Expense tracking and tax reporting</td>
+                </tr>
+                <tr>
+                    <td>Commercial Information</td>
+                    <td>Property listings, client details, commission amounts</td>
+                    <td>Listing management and income tracking</td>
+                </tr>
+                <tr>
+                    <td>Geolocation Data</td>
+                    <td>GPS coordinates, trip routes</td>
+                    <td>Business mileage deduction tracking</td>
+                </tr>
+                <tr>
+                    <td>Professional Information</td>
+                    <td>Business name, EIN, tax preferences</td>
+                    <td>IRS-compliant report generation</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Your California Privacy Rights:</strong></p>
+        <ul>
+            <li><strong>Right to Know:</strong> You may request the categories and specific pieces of personal information we have collected about you, the categories of sources, the business purposes for collection, and the categories of third parties with whom we share it.</li>
+            <li><strong>Right to Delete:</strong> You may request that we delete the personal information we have collected from you, subject to certain exceptions (e.g., data required for legal or tax compliance).</li>
+            <li><strong>Right to Correct:</strong> You may request correction of inaccurate personal information.</li>
+            <li><strong>Right to Opt Out of Sale/Sharing:</strong> We do <strong>not sell</strong> your personal information. We do <strong>not share</strong> your personal information for cross-context behavioral advertising.</li>
+            <li><strong>Right to Limit Use of Sensitive Personal Information:</strong> You may limit our use of sensitive personal information (such as financial data) to only what is necessary to provide the services you requested.</li>
+            <li><strong>Right to Non-Discrimination:</strong> We will not discriminate against you for exercising any of your CCPA rights. You will not receive different pricing, a different quality of service, or be denied service for exercising your rights.</li>
+        </ul>
+
+        <p><strong>How to Exercise Your Rights:</strong></p>
+        <ul>
+            <li>Email us at <a href="mailto:listingledgerteam@akars.me">listingledgerteam@akars.me</a> with the subject line "CCPA Request"</li>
+            <li>Use the "Delete Account" feature within the app (Settings &gt; Delete Account)</li>
+            <li>Use the "Export Data" feature within the app for data portability</li>
+        </ul>
+        <p>We will respond to verifiable consumer requests within 45 days. You may designate an authorized agent to submit requests on your behalf by providing written authorization.</p>
+
+        <p><strong>Financial Incentive Disclosure:</strong> ListingLedger offers subscription tiers (Free, Pro, Business) with different feature access. The value of any price difference is reasonably related to the additional features and services provided, not to the value of your personal information.</p>
 
         <h2>7. Children's Privacy</h2>
         <p>ListingLedger is designed for business professionals and is not intended for use by individuals under the age of 18. We do not knowingly collect personal information from children. If you believe we have inadvertently collected such information, please contact us so we can promptly remove it.</p>
